@@ -62,7 +62,6 @@ function reducer(state: typeof initialState, action: ActionType) {
 const CoinTable = ({ currency, coins }: CoinTableProps) => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const { sortBySymbolDescending, sortByCurrentPriceDescending, sortByOpeningPriceDescending, sortByPriceIncDescending, activeSort } = state;
-
     useEffect(() => {
         dispatch({ type: "updateCoins", payload: coins });
     }, [coins]);
@@ -81,7 +80,7 @@ const CoinTable = ({ currency, coins }: CoinTableProps) => {
                 {state.coins.map((coin: Coin) =>
                     <tr key={coin.symbol}>
                         <td>{coin.symbol}</td>
-                        <td>{coin.getCurrentPrice(currency)}</td>
+                        <td>{coin.currentPrice}</td>
                         <td>{coin.getOpeningPrice(currency)}</td>
                         <td>{coin.getPriceIncrease(currency)}</td>
                     </tr>
@@ -90,5 +89,6 @@ const CoinTable = ({ currency, coins }: CoinTableProps) => {
         </table>
     );
 };
+const ele = React.memo(CoinTable);
 
-export default CoinTable;
+export default ele;

@@ -1,10 +1,4 @@
 import React from "react";
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { faArrowDown, faArrowUp } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-library.add(faArrowDown, faArrowUp);
-
 interface TableHeaderSortableProps {
     caption: string;
     isDescending: boolean;
@@ -14,7 +8,7 @@ interface TableHeaderSortableProps {
 
 const TableHeaderSortable = ({ caption, isDescending = false, isActive = false, onClick }: TableHeaderSortableProps) => (
     <th className="table-header-sortable" onClick={onClick}>
-        {caption} {isActive && <FontAwesomeIcon icon={isDescending ? "arrow-down" : "arrow-up"} />}
+        {caption} {isActive && isDescending ? "up" : "down"}
     </th>
 );
 
