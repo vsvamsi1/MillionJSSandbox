@@ -12,7 +12,18 @@ function App() {
   const [inputValue, setInputValue] = useState("test");
   useEffect(() => {
     fetchCoins(currency, COINS_TO_FETCH).then(res => {
-      setCoins(res);
+      let i = 0;
+      let allCoins: any = []
+      // increasing the size of collection to see the impact of millionJS compiler
+      while (i<200) {
+        allCoins = [...allCoins, ...res];
+        i++;
+      }
+      allCoins = allCoins.map((coin: Coin, index:number) => ({
+        ...coin,
+        symbol: coin.symbol+"_"+index,
+      }));
+      setCoins(allCoins);
     })
   }, [currency]);
 

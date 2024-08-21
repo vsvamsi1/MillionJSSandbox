@@ -1,10 +1,8 @@
 [![Build Status](https://travis-ci.com/adamfaryna/react-18-sample.svg?branch=master)](https://travis-ci.com/adamfaryna/react-18-sample)
 
-# React-18 Sample project 1 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-Simple project demonstrating usage of React 16.8 with create-react-app.
+# Setup to experiment millionJS compiler and millionJS lint
+On a react 18 project we have integrated millionJS lint and millionJS compiler. To work with lint you need to install million JS vscode plugin as well.
+We have also experimented the performance of millionJS compiler by generating a large set of dom nodes to analyse the reduction of scripting and rendering.
 
 The data is fetched from [cryptocompare.com](https://cryptocompare.com) API.
 
